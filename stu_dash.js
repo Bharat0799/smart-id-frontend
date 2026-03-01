@@ -1,4 +1,4 @@
-const BASE_URL = "https://smart-id-management-backend.onrender.com";
+const BASE_URL = "https://smart-id-backend-3.onrender.com";
 let studentRequestsCache = [];
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -1044,3 +1044,4 @@ function getPreferredRollNo(studentId) {
     if (userRoll) return userRoll;
     return "";
 }
+

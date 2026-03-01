@@ -29,6 +29,6 @@ http
       res.end("Server error");
     }
   })
-  .listen(port, "127.0.0.1", () => {
-    console.log(`Static server running at http://127.0.0.1:${port}`);
+  .listen(port, "0.0.0.0", () => {
+    console.log(`Static server running on port ${port}`);
   });

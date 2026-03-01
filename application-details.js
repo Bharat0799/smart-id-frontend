@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
-    const BASE_URL = "https://smart-id-management-backend.onrender.com";
+    const BASE_URL = "https://smart-id-backend-3.onrender.com";
     // Read request id from URL: application-details.html?id=APP-1234
     const params = new URLSearchParams(window.location.search);
     const requestId = params.get("id");
@@ -210,7 +210,7 @@ function renderProofDocument(application) {
         return;
     }
 
-    const BASE_URL = "https://smart-id-management-backend.onrender.com";
+    const BASE_URL = "https://smart-id-backend-3.onrender.com";
     const fullUrl = filePath.startsWith("http") ? filePath : `${BASE_URL}${filePath}`;
     const lowerPath = filePath.toLowerCase();
     const isImage = /\.(png|jpe?g|gif|webp|bmp|svg)$/.test(lowerPath);
@@ -248,7 +248,7 @@ async function updateApplicationStatus(index, status, options = {}) {
 
     try {
         const resourceId = options.backendId || options.requestId;
-        const BASE_URL = "https://smart-id-management-backend.onrender.com";
+        const BASE_URL = "https://smart-id-backend-3.onrender.com";
         const response = await fetch(`${BASE_URL}/api/admin/application/${encodeURIComponent(resourceId)}/status`, {
             method: "PUT",
             headers: {
@@ -310,3 +310,4 @@ function escapeHtml(value) {
         .replace(/"/g, "&quot;")
         .replace(/'/g, "&#39;");
 }
+

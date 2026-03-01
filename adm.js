@@ -6,7 +6,7 @@ let dashboardRequestsCache = [];
 const SETTINGS_KEY = "smartID_settings";
 const ADMIN_LAST_SEEN_AT_KEY = "admin_last_seen_at";
 const NOTIFICATIONS_KEY = "smartID_notifications";
-const BASE_URL = "https://smart-id-management-backend.onrender.com";
+const BASE_URL = "https://smart-id-backend-3.onrender.com";
 
 document.addEventListener("DOMContentLoaded", function() {
     // Legacy cleanup: application data is server-backed and must not use localStorage.
@@ -706,3 +706,4 @@ function updateThemeIcon(themeIcon) {
     }
     themeIcon.className = "fas fa-moon";
 }
+

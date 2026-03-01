@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const BASE_URL = "https://smart-id-management-backend.onrender.com";
+    const BASE_URL = "https://smart-id-backend-3.onrender.com";
     const loginForm = document.getElementById("loginForm");
     const signupForm = document.querySelector(".signup-form form");
 
@@ -106,3 +106,4 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
+

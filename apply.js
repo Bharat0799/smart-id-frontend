@@ -1,4 +1,4 @@
-const BASE_URL = "https://smart-id-management-backend.onrender.com";
+const BASE_URL = "https://smart-id-backend-3.onrender.com";
 
 document.addEventListener("DOMContentLoaded", function() {
     const form = document.getElementById("applyForm");
@@ -97,3 +97,4 @@ function isValidMobile(value) {
 function isValidEmail(value) {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
 }
+

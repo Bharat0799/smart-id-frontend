@@ -68,7 +68,7 @@ document.getElementById("loginForm").addEventListener("submit", async function(e
 
     const email = document.querySelector("input[type='text']").value;
     const password = document.querySelector("input[type='password']").value;
-    const BASE_URL = "https://smart-id-management-backend.onrender.com";
+    const BASE_URL = "https://smart-id-backend-3.onrender.com";
 
     try {
         const response = await fetch(`${BASE_URL}/api/auth/login`, {
@@ -97,3 +97,4 @@ document.getElementById("loginForm").addEventListener("submit", async function(e
 </script>
 </body>
 </html>
+
