@@ -1,0 +1,88 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#f5f5f5;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+.track-container{
+    background:#fff;
+    padding:40px;
+    width:500px;
+    border-radius:15px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.1);
+}
+
+.track-container h2{
+    margin-bottom:25px;
+}
+
+.search-box{
+    display:flex;
+    gap:10px;
+    margin-bottom:25px;
+}
+
+.search-box input{
+    flex:1;
+    padding:12px;
+    border:1px solid #ddd;
+    border-radius:8px;
+}
+
+.search-box button{
+    padding:12px 20px;
+    border:none;
+    border-radius:8px;
+    background:linear-gradient(to right,#3b82f6,#2563eb);
+    color:#fff;
+    cursor:pointer;
+}
+
+.result-box{
+    background:#f9f9f9;
+    padding:20px;
+    border-radius:10px;
+}
+
+.status{
+    padding:5px 12px;
+    border-radius:20px;
+    font-size:14px;
+}
+
+.approved{
+    background:#d1fae5;
+    color:#065f46;
+}
+
+.pending{
+    background:#fef3c7;
+    color:#92400e;
+}
+
+.rejected{
+    background:#fee2e2;
+    color:#991b1b;
+}
+.progress{
+    height:8px;
+    background:#eee;
+    border-radius:10px;
+    margin-top:10px;
+}
+#progressBar{
+    height:100%;
+    width:0%;
+    background:linear-gradient(to right,#3b82f6,#2563eb);
+    border-radius:10px;
+    transition:0.4s;
+}

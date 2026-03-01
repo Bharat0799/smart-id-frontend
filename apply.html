@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Apply for Smart ID Re-Issue</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="apply.css">
+</head>
+<body>
+
+<div class="form-container">
+
+    <h2>Apply for Smart ID Re-Issue</h2>
+
+    <form id="applyForm">
+
+        <label>Full Name</label>
+        <input type="text" id="fullName" required>
+
+        <label>ID Number</label>
+        <input type="text" id="idNumber" required>
+
+        <label>Date of Application</label>
+        <input type="date" id="date" required>
+
+        <label>Mobile Number</label>
+        <input type="tel" id="mobile" required>
+
+        <label>Email Address</label>
+        <input type="email" id="email" required>
+
+        <label>Department</label>
+        <select id="department" required>
+            <option value="">Select Department</option>
+            <option value="CSE">CSE</option>
+            <option value="ECE">ECE</option>
+            <option value="EEE">EEE</option>
+            <option value="MECH">MECH</option>
+        </select>
+
+        <label>Reason for Re-Issue</label>
+        <select id="reason" required>
+            <option value="">Select Reason</option>
+            <option value="Lost">Lost</option>
+            <option value="Damaged">Damaged</option>
+            <option value="Update Details">Update Details</option>
+        </select>
+
+        <label>Upload Aadhaar / Proof Document</label>
+        <input type="file" id="proofFile" required>
+
+        <!-- ✅ PAYMENT SECTION ADDED -->
+        <hr style="margin:20px 0;">
+        <h3>Payment Section</h3>
+        <p>Re-Issue Fee: <strong>₹100</strong></p>
+        <p>Scan the QR Code below to pay:</p>
+
+        <div style="text-align:center; margin:15px 0;">
+            <img src="qr.png" alt="Payment QR" style="width:200px; height:200px;">
+        </div>
+
+        <label>Enter Transaction ID After Payment</label>
+        <input type="text" id="transactionId" placeholder="Enter UPI Transaction ID" required>
+
+        <button type="submit">Submit Application</button>
+
+    </form>
+
+</div>
+
+<script src="apply.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Digital ID</title>
+<link rel="stylesheet" href="stu_dash.css">
+</head>
+<body>
+
+<div class="id-card">
+    <h2>Digital ID Card</h2>
+    <p>Name: <span id="name"></span></p>
+    <p>ID: STU2026</p>
+    <p>Department: CSE</p>
+</div>
+
+<script>
+document.getElementById("name").innerText =
+    localStorage.getItem("studentName");
+</script>
+
+</body>
+</html>

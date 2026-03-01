@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Track ID Status</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="track.css">
+</head>
+<body>
+
+<div class="track-container">
+    <h2>Track ID Re-Issue Status</h2>
+
+    <!-- Search Section -->
+    <div class="search-box">
+        <input type="text" id="trackId" placeholder="Enter Your ID Number">
+        <button onclick="checkStatus()">Track</button>
+    </div>
+
+    <!-- Result Section -->
+    <div class="result-box" id="resultBox" style="display:none;">
+        <h3>Application Details</h3>
+        <p><strong>Name:</strong> <span id="resName"></span></p>
+        <p><strong>ID Number:</strong> <span id="resId"></span></p>
+        <p><strong>Applied Date:</strong> <span id="resDate"></span></p>
+        <p><strong>Status:</strong>
+        <div class="progress">
+            <div id="progressBar"></div>
+        </div> 
+            <span id="resStatus" class="status"></span>
+        </p>
+    </div>
+</div>
+
+<script>
+function checkStatus(){
+    const id = document.getElementById("trackId").value;
+    const requests = JSON.parse(localStorage.getItem("idRequests")) || [];
+    const result = requests.find(req => req.idNumber === id);
+
+    if(result){
+        document.getElementById("resName").textContent = result.name;
+        document.getElementById("resId").textContent = result.idNumber;
+        document.getElementById("resDate").textContent = result.date;
+        document.getElementById("resStatus").textContent = result.status;
+
+        const statusClass = result.status.toLowerCase();
+        document.getElementById("resStatus").className = "status " + statusClass;
+
+        updateProgress(result.status);
+        document.getElementById("resultBox").style.display="block";
+    } else {
+        alert("No record found!");
+    }
+}
+function updateProgress(status){
+    const bar = document.getElementById("progressBar");
+
+    if(status === "Pending"){
+        bar.style.width = "40%";
+    }
+    else if(status === "Approved"){
+        bar.style.width = "100%";
+    }
+    else if(status === "Rejected"){
+        bar.style.width = "100%";
+        bar.style.background = "red";
+    }
+}
+</script>
+
+</body>
+</html>

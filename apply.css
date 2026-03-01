@@ -1,0 +1,116 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background: linear-gradient(135deg,#6a11cb,#2575fc);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    padding:20px;
+}
+
+/* White Card */
+.form-container{
+    background:#ffffff;
+    padding:40px;
+    width:100%;
+    max-width:550px;
+    border-radius:20px;
+    box-shadow:0 20px 50px rgba(0,0,0,0.2);
+}
+
+/* Title */
+.form-container h2{
+    text-align:center;
+    margin-bottom:30px;
+    color:#6a11cb;
+    font-weight:600;
+}
+
+/* Labels */
+label{
+    font-size:14px;
+    color:#6a11cb;
+    font-weight:500;
+    display:block;
+    margin-bottom:6px;
+}
+
+/* Inputs */
+form input,
+form select{
+    width:100%;
+    padding:14px;
+    margin-bottom:18px;
+    border:1px solid #ddd;
+    border-radius:10px;
+    font-size:14px;
+    outline:none;
+    transition:0.3s ease;
+}
+
+/* Focus Effect */
+form input:focus,
+form select:focus{
+    border-color:#6a11cb;
+    box-shadow:0 0 0 3px rgba(106,17,203,0.15);
+}
+
+/* Button */
+button{
+    width:100%;
+    padding:15px;
+    background: linear-gradient(to right,#6a11cb,#2575fc);
+    border:none;
+    border-radius:10px;
+    color:#fff;
+    font-size:16px;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s ease;
+}
+
+button:hover{
+    transform:translateY(-3px);
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* Responsive */
+@media(max-width:500px){
+    .form-container{
+        padding:25px;
+    }
+}
+/* QR Payment Section */
+.qr-box{
+    text-align:center;
+    margin-bottom:20px;
+}
+
+.qr-box img{
+    width:180px;
+    height:180px;
+    border-radius:12px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* Global button hover fallback */
+button,
+input[type="button"],
+input[type="submit"],
+input[type="reset"] {
+    transition: all 0.3s ease;
+}
+
+button:hover:not(:disabled),
+input[type="button"]:hover:not(:disabled),
+input[type="submit"]:hover:not(:disabled),
+input[type="reset"]:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}

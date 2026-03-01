@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application Details | Smart ID</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="adm.css">
+    <link rel="stylesheet" href="application-details.css">
+</head>
+<body>
+    <div class="details-page">
+        <div class="details-card">
+            <div class="details-header">
+                <h2>Application Details</h2>
+                <span id="statusBadge" class="status-badge pending">Pending</span>
+            </div>
+
+            <div class="details-layout">
+                <div class="details-left">
+                    <section class="detail-card info-card">
+                        <h3 class="card-title">Application Information</h3>
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <p class="field-label">Application ID</p>
+                                <p class="field-value" id="appId">-</p>
+                            </div>
+                            <div class="info-item">
+                                <p class="field-label">Name</p>
+                                <p class="field-value" id="appName">-</p>
+                            </div>
+                            <div class="info-item">
+                                <p class="field-label">Email</p>
+                                <p class="field-value" id="appEmail">-</p>
+                            </div>
+                            <div class="info-item">
+                                <p class="field-label">Phone</p>
+                                <p class="field-value" id="appPhone">-</p>
+                            </div>
+                            <div class="info-item">
+                                <p class="field-label">Department</p>
+                                <p class="field-value" id="appDepartment">-</p>
+                            </div>
+                            <div class="info-item">
+                                <p class="field-label">Reason</p>
+                                <p class="field-value" id="appReason">-</p>
+                            </div>
+                            <div class="info-item">
+                                <p class="field-label">Applied Date</p>
+                                <p class="field-value" id="appDate">-</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="detail-card correction-card" id="appCorrectionsSection" style="display:none;">
+                        <h3 class="card-title">Correction Details</h3>
+                        <div id="appCorrectionsList" class="correction-box">No correction details provided.</div>
+                    </section>
+
+                    <section class="detail-card remarks-card">
+                        <h3 class="card-title">Remarks & Actions</h3>
+                        <label class="remarks-label" for="remarksInput">Remarks (Required for Approve/Reject)</label>
+                        <textarea id="remarksInput" rows="4" placeholder="Enter approval/rejection remarks"></textarea>
+
+                        <div class="details-actions">
+                            <button class="action-btn approve-btn" id="approveBtn">Approve</button>
+                            <button class="action-btn reject-btn" id="rejectBtn">Reject</button>
+                            <button class="action-btn printing-btn" id="printingBtn">Move to Printing</button>
+                            <button class="action-btn ready-btn" id="readyBtn">Mark Ready</button>
+                            <button class="action-btn completed-btn" id="completedBtn">Mark Completed</button>
+                            <button class="action-btn view-btn" id="backBtn">Back to Dashboard</button>
+                        </div>
+                    </section>
+                </div>
+
+                <div class="details-right">
+                    <section class="detail-card proof-card">
+                        <h3 class="card-title">Proof Document</h3>
+                        <div id="appProofContainer" class="proof-box">No document uploaded</div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="application-details.js?v=20260228b"></script>
+</body>
+</html>

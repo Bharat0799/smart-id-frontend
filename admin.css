@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:"Poppins",sans-serif;
+}
+
+body{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:linear-gradient(135deg,#7d2ae8,#5b13b9);
+}
+
+/* MAIN CONTAINER */
+.container{
+  position:relative;
+  width:900px;
+  max-width:100%;
+  background:#fff;
+  border-radius:25px;
+  overflow:hidden;
+  box-shadow:0 15px 40px rgba(0,0,0,0.3);
+  display:flex;
+}
+
+/* RIGHT IMAGE PANEL */
+.cover{
+  width:50%;
+  background:linear-gradient(135deg,#7d2ae8,#5b13b9);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.cover img{
+  width:250px;
+  max-width:80%;
+}
+
+/* LEFT FORM PANEL */
+.forms{
+  width:50%;
+  padding:60px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.form-content{
+  width:100%;
+}
+
+.title{
+  font-size:26px;
+  font-weight:600;
+  margin-bottom:30px;
+  color:#333;
+  position:relative;
+}
+
+.title::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-5px;
+  width:30px;
+  height:3px;
+  background:#7d2ae8;
+}
+
+/* INPUTS */
+.input-box{
+  position:relative;
+  margin-bottom:20px;
+}
+
+.input-box i{
+  position:absolute;
+  left:10px;
+  top:50%;
+  transform:translateY(-50%);
+  color:#7d2ae8;
+}
+
+.input-box input{
+  width:100%;
+  padding:12px 40px;
+  border:none;
+  border-bottom:2px solid #ccc;
+  outline:none;
+  font-size:15px;
+}
+
+.input-box input:focus{
+  border-color:#7d2ae8;
+}
+
+/* FORGOT PASSWORD */
+.text{
+  font-size:14px;
+  margin-bottom:15px;
+}
+
+.text a{
+  text-decoration:none;
+  color:#7d2ae8;
+}
+
+/* BUTTON */
+.button input{
+  width:100%;
+  padding:12px;
+  border:none;
+  background:#7d2ae8;
+  color:#fff;
+  border-radius:8px;
+  cursor:pointer;
+  font-size:15px;
+  transition:0.3s;
+}
+
+.button input:hover{
+  background:#5b13b9;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .container{
+    flex-direction:column;
+  }
+
+  .cover{
+    display:none;
+  }
+
+  .forms{
+    width:100%;
+  }
+}

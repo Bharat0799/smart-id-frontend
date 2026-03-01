@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard | Smart ID</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="stu_dash.css">
+</head>
+<body>
+
+<div class="dashboard-container">
+
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <h2 class="logo">Smart ID</h2>
+        </div>
+
+        <ul class="sidebar-menu">
+            <li>
+                <a href="#" class="nav-link active" onclick="showSection('home', this)">
+                    <span class="icon"><i class="fas fa-house"></i></span>
+                    <span class="text">Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="nav-link" onclick="showSection('apply', this)">
+                    <span class="icon"><i class="fas fa-pen-to-square"></i></span>
+                    <span class="text">Apply ID</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="nav-link" onclick="showSection('status', this)">
+                    <span class="icon"><i class="fas fa-chart-line"></i></span>
+                    <span class="text">Track Status</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="nav-link" onclick="showSection('digital', this)">
+                    <span class="icon"><i class="fas fa-address-card"></i></span>
+                    <span class="text">Digital ID</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="nav-link" onclick="showSection('profile', this)">
+                    <span class="icon"><i class="fas fa-user"></i></span>
+                    <span class="text">Profile</span>
+                </a>
+            </li>
+        </ul>
+
+        <div class="sidebar-footer">
+            <button id="logoutBtn" class="logout-btn">
+                <span class="icon"><i class="fas fa-right-from-bracket"></i></span> <span class="text">Logout</span>
+            </button>
+        </div>
+    </aside>
+
+    <main class="main-content">
+
+        <header class="topbar-box">
+            <div class="top-left">
+                <button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle sidebar">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="user-welcome">
+                    <h3>Welcome, <span id="studentName">Student</span></h3>
+                    <small id="studentEmailDisplay">student@college.edu</small>
+                </div>
+            </div>
+
+            <div class="top-right">
+                <button id="themeToggle" class="icon-btn theme-btn" aria-label="Toggle theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                
+                <div class="notification-box">
+                    <button id="studentNotifBtn" class="icon-btn notif-btn"><i class="fas fa-bell"></i></button>
+                    <span class="badge" id="studentNotifBadge">0</span>
+                    <div id="studentNotifPanel" class="notif-panel" style="display:none;">
+                        <div class="notif-header">
+                            <strong>Notifications</strong>
+                        </div>
+                        <div id="studentNotifList" class="notif-list"></div>
+                    </div>
+                </div>
+
+                <div class="profile-section">
+                    <img src="https://i.pravatar.cc/150?img=32" class="avatar" alt="User">
+                    <div class="profile-dropdown">
+                        <p id="profileName">Student Name</p>
+                        <hr>
+                        <button id="logoutBtn2">Logout</button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div id="section-home" class="content-section">
+            <section class="welcome-banner">
+                <div class="banner-content">
+                    <h1>Welcome to Smart ID Re-Issue System</h1>
+                    <p>Apply, track, and manage your Smart ID re-issue requests online with ease.</p>
+                </div>
+            </section>
+
+            <section class="table-card">
+                <div class="card-header">
+                    <h3>Recent Applications</h3>
+                </div>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Application ID</th>
+                                <th>Department</th>
+                                <th>Date Applied</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="studentTableBody">
+                            </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+
+        <div id="section-apply" class="content-section" style="display: none;">
+            <div class="form-wrapper-center">
+                <div class="modern-form">
+                    <div class="form-header">
+                        <h2>Apply for Re-Issue</h2>
+                        <p>Please fill in the details below.</p>
+                    </div>
+                    
+                    <form id="applyForm">
+                        <div class="form-grid">
+                            <div class="input-group">
+                                <label>Full Name</label>
+                                <div class="input-wrapper">
+                                    <i class="fas fa-user"></i>
+                                    <input type="text" id="fullName" placeholder="Enter Full Name" required>
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <label>ID Number</label>
+                                <div class="input-wrapper">
+                                    <i class="fas fa-id-card"></i>
+                                    <input type="text" id="idNumber" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-grid">
+                            <div class="input-group">
+                                <label>Date</label>
+                                <div class="input-wrapper">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    <input type="date" id="date" required>
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <label>Mobile</label>
+                                <div class="input-wrapper">
+                                    <i class="fas fa-phone-alt"></i>
+                                    <input type="tel" id="mobile" placeholder="+91..." required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label>Email</label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-envelope"></i>
+                                <input type="email" id="email" placeholder="student@college.edu" required>
+                            </div>
+                        </div>
+
+                        <div class="form-grid">
+                            <div class="input-group">
+                                <label>Department</label>
+                                <div class="input-wrapper">
+                                    <i class="fas fa-building"></i>
+                                    <select id="department" required>
+                                        <option value="">Select Dept</option>
+                                        <option value="CSE">CSE</option>
+                                        <option value="ECE">ECE</option>
+                                        <option value="MECH">MECH</option>
+                                        <option value="CIVIL">CIVIL</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <label>Reason</label>
+                                <div class="input-wrapper">
+                                    <i class="fas fa-question-circle"></i>
+                                    <select id="reason" required>
+                                        <option value="Lost">Lost ID</option>
+                                        <option value="Damaged">Damaged ID</option>
+                                        <option value="Correction">Correction</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="correctionSection" class="input-group" style="display: none;">
+                            <label>Fields to Correct</label>
+                            <div class="input-wrapper" style="padding: 12px 15px; background: #f9faff; border: 2px solid #f0f2f5; border-radius: 10px;">
+                                <div style="display: grid; gap: 8px; width: 100%;">
+                                    <div>
+                                        <label><input type="checkbox" class="correction-toggle" name="correctionField" value="Name" data-key="name" data-label="Name" data-target="correctionNameInput" data-old-target="oldNameValue"> Name</label>
+                                        <div id="correctionNameWrap" style="display:none; margin-top:6px;">
+                                            <p id="oldNameValue" style="font-size:12px; color:#6b7280; margin:0 0 6px;">Old Name: -</p>
+                                            <input type="text" id="correctionNameInput" placeholder="Enter corrected Name" style="width:100%; padding:10px 12px; border:2px solid #f0f2f5; background:#f9faff; border-radius:10px; outline:none;">
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <label><input type="checkbox" class="correction-toggle" name="correctionField" value="ID Number" data-key="idNumber" data-label="ID Number" data-target="correctionIdNumberInput" data-old-target="oldIdNumberValue"> ID Number</label>
+                                        <div id="correctionIdNumberWrap" style="display:none; margin-top:6px;">
+                                            <p id="oldIdNumberValue" style="font-size:12px; color:#6b7280; margin:0 0 6px;">Old ID Number: -</p>
+                                            <input type="text" id="correctionIdNumberInput" placeholder="Enter corrected ID Number" style="width:100%; padding:10px 12px; border:2px solid #f0f2f5; background:#f9faff; border-radius:10px; outline:none;">
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <label><input type="checkbox" class="correction-toggle" name="correctionField" value="Department" data-key="department" data-label="Department" data-target="correctionDepartmentInput" data-old-target="oldDepartmentValue"> Department</label>
+                                        <div id="correctionDepartmentWrap" style="display:none; margin-top:6px;">
+                                            <p id="oldDepartmentValue" style="font-size:12px; color:#6b7280; margin:0 0 6px;">Old Department: -</p>
+                                            <input type="text" id="correctionDepartmentInput" placeholder="Enter corrected Department" style="width:100%; padding:10px 12px; border:2px solid #f0f2f5; background:#f9faff; border-radius:10px; outline:none;">
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <label><input type="checkbox" class="correction-toggle" name="correctionField" value="Address" data-key="address" data-label="Address" data-target="correctionAddressInput" data-old-target="oldAddressValue"> Address</label>
+                                        <div id="correctionAddressWrap" style="display:none; margin-top:6px;">
+                                            <p id="oldAddressValue" style="font-size:12px; color:#6b7280; margin:0 0 6px;">Old Address: -</p>
+                                            <input type="text" id="correctionAddressInput" placeholder="Enter corrected Address" style="width:100%; padding:10px 12px; border:2px solid #f0f2f5; background:#f9faff; border-radius:10px; outline:none;">
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <label><input type="checkbox" class="correction-toggle" name="correctionField" value="Phone Number" data-key="phone" data-label="Phone Number" data-target="correctionPhoneInput" data-old-target="oldPhoneValue"> Phone Number</label>
+                                        <div id="correctionPhoneWrap" style="display:none; margin-top:6px;">
+                                            <p id="oldPhoneValue" style="font-size:12px; color:#6b7280; margin:0 0 6px;">Old Phone Number: -</p>
+                                            <input type="text" id="correctionPhoneInput" placeholder="Enter corrected Phone Number" style="width:100%; padding:10px 12px; border:2px solid #f0f2f5; background:#f9faff; border-radius:10px; outline:none;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label>Upload Proof</label>
+                            <div class="file-upload-box" onclick="document.getElementById('fileInput').click()">
+                                <input type="file" id="fileInput" hidden required>
+                                <div class="upload-content">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                    <p>Click to Upload or Drag & Drop</p>
+                                    <span id="fileName">No file chosen</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label>Payment QR</label>
+                            <div class="file-upload-box" style="cursor: default;">
+                                <div class="upload-content">
+                                    <img
+                                        id="paymentQr"
+                                        src="originalqr.jpeg"
+                                        alt="Smart ID Payment QR"
+                                        class="payment-qr"
+                                        style="width:180px; height:180px; object-fit:contain;">
+                                    <p id="paymentFeeText" style="margin-top:10px;">Scan and pay re-issue fee (Fixed: &#8377;100)</p>
+                                </div>
+                            </div>
+                        </div>
+                        <script>
+                            (function () {
+                                const rawAmount = Number(localStorage.getItem("smartID_feeAmount"));
+                                const amount = Number.isFinite(rawAmount) && rawAmount > 0 ? rawAmount : 100;
+                                const upiUrl = `upi://pay?pa=6301684579@axl&pn=SmartID&am=${amount}&cu=INR&tn=Smart%20ID%20Reissue%20Fee`;
+                                const qrApi = "https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=" + encodeURIComponent(upiUrl);
+                                const qrImg = document.getElementById("paymentQr");
+                                if (qrImg) qrImg.src = qrApi;
+                                const paymentFeeText = document.getElementById("paymentFeeText");
+                                if (paymentFeeText) paymentFeeText.textContent = `Scan and pay re-issue fee (Fixed: \u20B9${amount})`;
+                            })();
+                        </script>
+
+                        <div class="input-group">
+                            <label>Transaction ID</label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-receipt"></i>
+                                <input type="text" id="transactionId" placeholder="Enter payment transaction ID" required>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="submit-btn">Submit Application</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div id="section-status" class="content-section" style="display: none;">
+            <div class="status-header-card">
+                <h2>Application Tracking</h2>
+                <p>Track the realtime progress of your ID card request.</p>
+            </div>
+
+            <div id="trackingContainer" class="tracking-container">
+                <div class="no-data-box">
+                    <i class="fas fa-search"></i>
+                    <p>No active applications found.</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="section-digital" class="content-section" style="display: none;">
+            <div class="digital-id-wrapper">
+                <div class="id-card-container">
+                    <div class="id-card">
+                        
+                        <div class="id-side id-front">
+                            <div class="id-header">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" class="college-logo" alt="Logo">
+                                <div class="college-name">
+                                    <h3>Smart University</h3>
+                                    <p>Student Identity Card</p>
+                                </div>
+                            </div>
+                            <div class="id-body">
+                                <div class="photo-box">
+                                    <img src="https://i.pravatar.cc/300?img=32" class="student-photo" alt="Student">
+                                </div>
+                                <div class="details">
+                                    <h2 id="cardName">Student Name</h2>
+                                    <p class="role">Student</p>
+                                    
+                                    <div class="info-grid">
+                                        <div>
+                                            <small>ID Number</small>
+                                            <span id="cardID">21CSE105</span>
+                                        </div>
+                                        <div>
+                                            <small>Department</small>
+                                            <span id="cardDept">CSE</span>
+                                        </div>
+                                        <div>
+                                            <small>Valid Thru</small>
+                                            <span>Aug 2026</span>
+                                        </div>
+                                        <div>
+                                            <small>DOB</small>
+                                            <span>12-05-2003</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="id-footer">
+                                <div class="barcode"></div> 
+                            </div>
+                        </div>
+
+                        <div class="id-side id-back">
+                            <div class="qr-box">
+                                <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=SmartID_Student_21CSE105" alt="QR">
+                            </div>
+                            <div class="terms">
+                                <h4>Terms & Conditions</h4>
+                                <ul>
+                                    <li>This card is the property of Smart University.</li>
+                                    <li>Transfer of this card is a punishable offense.</li>
+                                    <li>If found, return to the University Office.</li>
+                                </ul>
+                            </div>
+                            <div class="signature">
+                                <p>Authorized Signatory</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <p class="instruction-text"><i class="fas fa-sync-alt"></i> Hover over the card to flip</p>
+            </div>
+        </div>
+
+        <div id="section-profile" class="content-section" style="display: none;">
+            <div class="profile-wrapper">
+                
+                <div class="profile-header-card">
+                    <div class="cover-photo"></div>
+                    <div class="profile-content">
+                        <div class="profile-img-box">
+                            <img src="https://i.pravatar.cc/300?img=32" class="profile-main-img">
+                            <button class="edit-icon"><i class="fas fa-camera"></i></button>
+                            <input type="file" id="profileImageInput" accept="image/*" hidden>
+                        </div>
+                        <div class="profile-text">
+                            <h2 id="profileNameMain">Student Name</h2>
+                            <p>Computer Science Engineering</p>
+                        </div>
+                        <div class="profile-action-group">
+                            <button class="edit-profile-btn" id="editProfileBtn">Edit Profile</button>
+                            <button class="edit-profile-btn save-profile-btn" id="saveProfileBtn" style="display:none;">Save</button>
+                            <button class="edit-profile-btn cancel-profile-btn" id="cancelProfileBtn" style="display:none;">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="profile-details-card">
+                    <h3>Personal Information</h3>
+                    <form class="profile-form">
+                        <div class="form-grid">
+                            <div class="input-group">
+                                <label>Full Name</label>
+                                <input type="text" id="pName" value="Student Name" disabled>
+                            </div>
+                            <div class="input-group">
+                                <label>Email Address</label>
+                                <input type="email" id="pEmail" value="student@college.edu" disabled>
+                            </div>
+                            <div class="input-group">
+                                <label>Phone Number</label>
+                                <input type="text" id="pPhone" value="+91 98765 43210" disabled data-editable="true">
+                            </div>
+                            <div class="input-group">
+                                <label>Roll Number</label>
+                                <input type="text" id="pRoll" value="21CSE105" disabled>
+                            </div>
+                            <div class="input-group">
+                                <label>Department</label>
+                                <input type="text" id="pDepartment" value="CSE" disabled>
+                            </div>
+                            <div class="input-group">
+                                <label>Date of Birth</label>
+                                <input type="date" id="pDob" value="2003-05-12" disabled data-editable="true">
+                            </div>
+                            <div class="input-group">
+                                <label>Address</label>
+                                <input type="text" id="pAddress" value="123, Tech Street, Vijayawada" disabled data-editable="true">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </main>
+</div>
+
+<div id="profileToast" class="profile-toast">Profile updated successfully</div>
+
+<script src="stu_dash.js?v=20260228c"></script>
+</body>
+</html>
+
